@@ -29,7 +29,7 @@ const router = new VueRouter({
 new Vue({
   el: '#app1',
   router,
-  render: h => h(App)
+  render: h => h(Baidu)
 })
 
 // 路由切换的时候 路由是从哪来 到哪去
