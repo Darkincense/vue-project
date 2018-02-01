@@ -1,40 +1,35 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 import Baidu from './components/baidu.vue'
 import App from './components/App.vue'
 import Main from './App.vue'
 
 
 Vue.use(VueRouter)
+// Vue.use(VueResource)
 
 const router = new VueRouter({
   mode: 'history',
-  // base: __dirname,
+  base: __dirname,
   routes: [
     {
-      path: '/',
-      component: Main,
+      name: 'baidu',
+      path: '/baidu',
+      component: Baidu,
     }, 
     {
-    path: '/baidu',
-    component: Baidu,
-    }, 
-    {
-    path: '/todo',
-    component: App
+      name: 'todo',
+      path: '/todo',
+      component: App
     }
   ]
 });
 
-
-// new Vue({
-//   router
-// }).$mount('#app1')
-
 new Vue({
   el: '#app1',
   router,
-  render: h => h(Baidu)
+  render: h => h(Main)
 })
 
 // 路由切换的时候 路由是从哪来 到哪去
