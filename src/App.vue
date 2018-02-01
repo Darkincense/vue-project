@@ -1,8 +1,10 @@
 <template>
   <div class="main-vue">
-      <router-link to="/baidu">Go to 百度</router-link>
-      <router-link to="/todo">Go to todos</router-link>
-      <router-view></router-view>
+      <ul>
+        <router-link tag="li" to="/baidu">百度</router-link>
+        <router-link tag="li" to="/todo">vue-todo</router-link>
+      </ul>
+      <router-view class="content"></router-view>
   </div>
 </template>
 <script>
@@ -14,6 +16,19 @@ export default {
     .main-vue {
         width: 100%;
         height: 100%;
+        text-align: center;
+        ul {
+            li {
+                list-style: none;
+                float: left;
+                width: 20%;
+                // border: 1px solid #000;
+                margin-right: 2%;
+                cursor: pointer;
+                background: pink;
+            }
+        }
+        
     }
 </style>
 

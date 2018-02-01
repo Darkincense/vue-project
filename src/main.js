@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import Baidu from './components/baidu.vue'
-import App from './components/App.vue'
-import Main from './App.vue'
+import baiduComponent from './components/baiduComponent.vue'
+import todoComponent from './components/todoComponent.vue'
+import App from './App.vue'
 
 
 Vue.use(VueRouter)
@@ -16,12 +16,12 @@ const router = new VueRouter({
     {
       name: 'baidu',
       path: '/baidu',
-      component: Baidu,
+      component: baiduComponent,
     }, 
     {
       name: 'todo',
       path: '/todo',
-      component: App
+      component: todoComponent
     }
   ]
 });
@@ -29,7 +29,7 @@ const router = new VueRouter({
 new Vue({
   el: '#app1',
   router,
-  render: h => h(Main)
+  render: h => h(App)
 })
 
 // 路由切换的时候 路由是从哪来 到哪去
