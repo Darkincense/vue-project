@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import App from './App.vue'
 import baiduComponent from './components/baiduComponent.vue'
 import todoComponent from './components/todoComponent.vue'
-import App from './App.vue'
+import newComponent from './components/newComponent.vue'
 
 
 Vue.use(VueRouter)
@@ -14,14 +15,19 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     {
-      name: 'baidu',
+      // name: 'baidu',
       path: '/baidu',
-      component: baiduComponent,
+      component: baiduComponent
     }, 
     {
-      name: 'todo',
+      // name: 'todo',
       path: '/todo',
       component: todoComponent
+    },
+    {
+      // name: 'new',
+      path: '/new',
+      component: newComponent
     }
   ]
 });
