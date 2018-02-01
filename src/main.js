@@ -15,17 +15,25 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     {
-      // name: 'baidu',
+      name: 'init',
+      path: '/',    // 根目录下匹配todo组件
+      component: todoComponent
+    },
+    {
+      // 百度地图
+      name: 'baidu',
       path: '/baidu',
       component: baiduComponent
     }, 
     {
-      // name: 'todo',
+      // vue-todo
+      name: 'todo',
       path: '/todo',
       component: todoComponent
     },
     {
-      // name: 'new',
+      // 新页面字符组件传值
+      name: 'new',
       path: '/new',
       component: newComponent
     }

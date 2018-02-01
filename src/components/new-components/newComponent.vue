@@ -1,7 +1,7 @@
 <template>
     <!-- 每一个子组件模板应该被一个根元素包裹起来  -->
     <div class="new">
-        <h3>下面是一个子组件循环出来的</h3>
+        <!-- <h3>下面是一个子组件循环出来的</h3> -->
         <appendNewComponent      
         v-bind:a="a"
         v-on:gaibianazhi="fuzujiangaibain"
@@ -34,8 +34,9 @@ export default {
   },
   methods: {
       fuzujiangaibain: function(e){
-          this.a = e;
-          console.log('子组件传过来的参数',e)
+        //   this.a = e;
+        this.a ++;
+        //   console.log('子组件传过来的参数',e)
       }
   },
   created: function(){
