@@ -21,7 +21,7 @@ export default {
       changeA: function(){
           console.log('触发改变')
           // 父组件中有和 gaibianazhi  同名的自定义点击事件 用来改变值（发射信号告诉父组件改变哪个值，改成什么样）
-        //   this.$emit('gaibianazhi',1000)
+         //   this.$emit('gaibianazhi',1000)
           this.$emit('gaibianazhi')     //该方法的第二个参数是子组件传向父组件的参数
       }
   }
