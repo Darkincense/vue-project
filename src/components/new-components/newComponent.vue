@@ -2,11 +2,9 @@
     <!-- 每一个子组件模板应该被一个根元素包裹起来  -->
     <div class="new">
         <h3>下面是一个子组件循环出来的</h3>
-        <appendNewComponent 
-        v-for="(item,index) in list" 
-        :key="index"
-        :title="item.title"     
-        :a="a"
+        <appendNewComponent      
+        v-bind:a="a"
+        v-on:gaibianazhi="fuzujiangaibain"
         ></appendNewComponent>
     </div>
 </template>
@@ -35,7 +33,10 @@ export default {
       appendNewComponent
   },
   methods: {
-
+      fuzujiangaibain: function(e){
+          this.a = e;
+          console.log('子组件传过来的参数',e)
+      }
   },
   created: function(){
 
