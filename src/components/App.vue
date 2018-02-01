@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <li><router-link to="/baidu">跳转</router-link></li>
     <h1 :style="{color: currentColor}">{{ title }}</h1>
     <h3>{{ reversedMessage }}</h3>
     <p v-html="msg" :style="{color: redColor}"></p>
@@ -42,6 +43,7 @@
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
+import Router from 'vue-router'
 
 
 export default {

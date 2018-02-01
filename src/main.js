@@ -2,20 +2,25 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Baidu from './components/baidu.vue'
 import App from './components/App.vue'
+import Main from './App.vue'
 
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'history',
-  base: __dirname,
+  // base: __dirname,
   routes: [
+    {
+      path: '/',
+      component: Main,
+    }, 
     {
     path: '/baidu',
     component: Baidu,
     }, 
     {
-    path: '/app',
+    path: '/todo',
     component: App
     }
   ]
@@ -29,7 +34,7 @@ const router = new VueRouter({
 new Vue({
   el: '#app1',
   router,
-  render: h => h(App)
+  render: h => h(Baidu)
 })
 
 // 路由切换的时候 路由是从哪来 到哪去
