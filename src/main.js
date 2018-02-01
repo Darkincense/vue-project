@@ -4,14 +4,14 @@ import VueResource from 'vue-resource'
 import App from './App.vue'
 import baiduComponent from './components/baiduComponent.vue'
 import todoComponent from './components/todoComponent.vue'
-import newComponent from './components/newComponent.vue'
+import newComponent from './components/new-components/newComponent.vue'
 
 
 Vue.use(VueRouter)
 // Vue.use(VueResource)
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: 'history',    //history模式可以去掉路由中的#
   base: __dirname,
   routes: [
     {
