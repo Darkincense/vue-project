@@ -1,11 +1,20 @@
 <style lang="less" scoped>
-
+button {
+    margin-bottom: 5%;
+}
 </style>
 <template>
   <div class="app">
       <button @click="parentCall">点击操作子组件</button>
       <!-- 在子组件定义一下ref属性 -->
+      <div class="use">
+      <input type="text" v-model="mobile" placeholder="请输入您要查询的手机号">          
+      <button @click="inquireMobile">点击查询手机归属地</button>
+      </div>
+      <!-- 弹窗组件 -->
       <hello ref="chilll" />
+      <!-- 弹窗组件 -->
+      <hello ref="chillls"/>
   </div>
 </template>
 <script>
@@ -13,13 +22,36 @@ import hello from './childrenComponent'
 export default {
   data(){
       return {
-          title: '父组件内消息'
+          title: '父组件内消息',
+          mobile: '',
+          localtion: '您没有输入正确的手机号'
       }
   },
   components: {
       hello
   },
   methods: {
+      inquireMobile: function(){
+          self = this;      // this在回调函数里指向不是vue实例因为下面要用，所以在这里备份一下；
+        //   console.log(this.mobile)
+        // vue 更改配置文件解决跨域请求
+        //   axios.get('https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=' + this.mobile,function(data){
+        //       console.log(data)
+        //   })
+
+        // ajax 解决跨域请求
+          $.ajax({ 
+              url: 'https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=' + this.mobile, 
+            type: 'GET', 
+            dataType: 'JSONP', 
+            success: function (res) { 
+                if(res.carrier != undefined){
+                  self.localtion = res.carrier;
+                }
+                  self.$refs.chillls.changeIsshow(self.localtion)
+            } 
+        }) 
+      },
       parentCall: function(){
         //   父组件调用子组件内的方法，操作子组件内的数据
           this.$refs.chilll.changeIsshow(this.title)

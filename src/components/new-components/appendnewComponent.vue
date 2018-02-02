@@ -4,17 +4,17 @@
       class="changeA"
       @click="changeA"
       >点击让父组件内的a累加</button>
-      <h3>父组件传递过来的值是{{a}}</h3>
+      <h3>父组件传递过来的值是{{c}}</h3>
       <button @click="openModel">弹窗组件</button>
       <hello ref="chil"/>
   </div>
 </template>
 <script>
-import hello from '../f-cComponents/childrenComponent'
+import hello from '../f-cComponents/childrenComponent';
 
 export default {
   props: [
-      'a'
+      'c'
       ],     // 子组件里面用props数组的形式来接受父组件传进来的数据
   data(){
       return {

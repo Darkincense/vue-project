@@ -12,7 +12,7 @@
     .model {
         position: fixed;
         left: 50%;
-        top: 50%;
+        top: 40%;
         transform: translateX(-50%) translateY(-50%);
         width: 30%;
         background: #fff;

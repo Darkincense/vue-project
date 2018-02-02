@@ -4,6 +4,7 @@
         <!-- <h3>下面是一个子组件循环出来的</h3> -->
         <appendNewComponent      
         v-bind:a="a"
+        :c="c"
         v-on:gaibianazhi="fuzujiangaibain"
         ></appendNewComponent>
     </div>
@@ -15,6 +16,7 @@ export default {
   data(){
       return {
         //   用v-bind子那个定义属性的方式给子组件传值
+          c: 6,
           a: 1,
           list: [
               {
