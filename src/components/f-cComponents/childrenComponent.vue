@@ -35,7 +35,6 @@
   <transition v-if="isShow">
     <div class="children" >
       <!-- <p v-if="isShow">hello</p> -->
-      <p class="app2">子组件</p>
       <!-- 弹窗组件封装 -->
       <div class="mask" @click="closeModel"></div>
       <div class="model">
