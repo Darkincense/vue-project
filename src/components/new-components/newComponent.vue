@@ -3,10 +3,11 @@
     <div class="new">
         <!-- <h3>下面是一个子组件循环出来的</h3> -->
         <appendNewComponent      
-        v-bind:a="a"
+        :a="a"
         :c="c"
         v-on:gaibianazhi="fuzujiangaibain"
         ></appendNewComponent>
+        <h3>{{ name | capitalize }}</h3>
     </div>
 </template>
 <script>
@@ -16,6 +17,7 @@ export default {
   data(){
       return {
         //   用v-bind子那个定义属性的方式给子组件传值
+          name: 'boy',
           c: 6,
           a: 1,
           list: [
@@ -38,7 +40,7 @@ export default {
       fuzujiangaibain: function(e){
         //   this.a = e;
         this.a += e;
-        //   console.log('子组件传过来的参数',e)
+          console.log('子组件传过来的参数',e)
       }
   },
   created: function(){
@@ -48,6 +50,9 @@ export default {
 </script>
 <style lang="less" scoped>
 @import '../../assets/new.less';
+h3 {
+    color: red;
+}
 </style>
 
 

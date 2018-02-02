@@ -2,11 +2,18 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import App from './App.vue'
+import * as custom from './common/filters/custom'
+
+
 import baiduComponent from './components/baiduComponent.vue'
 import todoComponent from './components/todoComponent.vue'
 import newComponent from './components/new-components/newComponent.vue'
 import transitonComponent from './components/transitonComponent.vue'
 import vueComponent from './components/f-cComponents/vueComponent'
+
+Object.keys(custom).forEach(key => {
+  Vue.filter(key, custom[key])
+})
 
 
 Vue.use(VueRouter)

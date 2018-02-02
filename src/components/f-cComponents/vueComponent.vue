@@ -5,6 +5,7 @@ button {
 </style>
 <template>
   <div class="app">
+      <h3>{{ time | dateServer }}</h3>
       <button @click="parentCall">点击操作子组件</button>
       <!-- 在子组件定义一下ref属性 -->
       <div class="use">
@@ -22,6 +23,7 @@ import hello from './childrenComponent';
 export default {
   data(){
       return {
+          time: 20180202,
           title: '父组件内消息',
           mobile: '',
           localtion: '请输入正确的手机号'
