@@ -5,6 +5,7 @@ import App from './App.vue'
 import baiduComponent from './components/baiduComponent.vue'
 import todoComponent from './components/todoComponent.vue'
 import newComponent from './components/new-components/newComponent.vue'
+import transitonComponent from './components/transitonComponent.vue'
 
 
 Vue.use(VueRouter)
@@ -36,6 +37,12 @@ const router = new VueRouter({
       name: 'new',
       path: '/new',
       component: newComponent
+    },
+    {
+      // 新页面字符组件传值
+      name: 'transition',
+      path: '/transition',
+      component: transitonComponent
     }
   ]
 });

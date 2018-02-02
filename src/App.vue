@@ -4,6 +4,7 @@
         <router-link tag="li" to="/baidu">百度</router-link>
         <router-link tag="li" to="/todo">vue-todo</router-link>
         <router-link tag="li" to="/new">到一个全新的页面</router-link>
+        <router-link tag="li" to="/transition">vue过渡动画</router-link>
       </ul>
       <router-view class="content"></router-view>
   </div>
