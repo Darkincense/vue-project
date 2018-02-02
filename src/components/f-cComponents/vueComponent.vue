@@ -8,8 +8,8 @@ button {
       <button @click="parentCall">点击操作子组件</button>
       <!-- 在子组件定义一下ref属性 -->
       <div class="use">
-      <input type="text" v-model="mobile" placeholder="请输入您要查询的手机号">          
-      <button @click="inquireMobile">点击查询手机归属地</button>
+        <input type="text" v-model="mobile" placeholder="请输入您要查询的手机号">          
+        <button @click="inquireMobile">点击查询手机归属地</button>
       </div>
       <!-- 弹窗组件 -->
       <hello ref="chilll" />
@@ -18,7 +18,7 @@ button {
   </div>
 </template>
 <script>
-import hello from './childrenComponent'
+import hello from './childrenComponent';
 export default {
   data(){
       return {
@@ -48,13 +48,13 @@ export default {
                 if(res.carrier != undefined){
                   self.localtion = res.carrier;
                 }
-                  self.$refs.chillls.changeIsshow(self.localtion)
+                  self.$refs.chillls.changeIsshow(self.localtion,'查询结果')
             } 
         }) 
       },
       parentCall: function(){
         //   父组件调用子组件内的方法，操作子组件内的数据
-          this.$refs.chilll.changeIsshow(this.title)
+          this.$refs.chilll.changeIsshow(this.title,'换个标题试试')
       }
   }
 }

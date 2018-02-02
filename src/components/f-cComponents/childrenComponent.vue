@@ -32,35 +32,43 @@
 }
 </style>
 <template>
-  <div class="children" v-if="isShow">
+  <transition v-if="isShow">
+    <div class="children" >
       <!-- <p v-if="isShow">hello</p> -->
       <p class="app2">子组件</p>
       <!-- 弹窗组件封装 -->
       <div class="mask" @click="closeModel"></div>
       <div class="model">
-          <h4>标题</h4>
+          <h4>{{ title }}</h4>
           <div class="content">
               {{ msg }}
           </div>
           <button @click="closeModel">关闭</button>
       </div>
   </div>
+  </transition>
 </template>
 <script>
 export default {
   data(){
       return {
           isShow: false,
-          msg: ''
+          msg: '',
+          title: '标题'
       }
   },
   methods: {
       chilFn:function (msg) {
 　　　　  alert(msg)
 　　   },
-      changeIsshow: function (msg){
-         this.isShow = !this.isShow;
+      changeIsshow: function (msg,till){
+          this.isShow = !this.isShow;
+        //   console.log($('.model h4'))
+        //   $('.model').animate({'top':'40%'},500,'swing')
          this.msg = msg;
+         if(till != '' && till != undefined){
+             this.title = till;
+         }
       },
       closeModel: function(){
           this.isShow = false;
