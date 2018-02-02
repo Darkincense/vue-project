@@ -24,7 +24,7 @@ export default {
       return {
           title: '父组件内消息',
           mobile: '',
-          localtion: '您没有输入正确的手机号'
+          localtion: '请输入正确的手机号'
       }
   },
   components: {
@@ -47,8 +47,10 @@ export default {
             success: function (res) { 
                 if(res.carrier != undefined){
                   self.localtion = res.carrier;
+                } else {
+                  self.localtion = '请输入正确的手机号';
                 }
-                  self.$refs.chillls.changeIsshow(self.localtion,'查询结果')
+                  self.$refs.chillls.changeIsshow(self.localtion,'查询结果');
             } 
         }) 
       },
