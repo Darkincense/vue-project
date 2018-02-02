@@ -2,7 +2,7 @@
 
 > A Vue.js project
 <!-- 小小的vue学习demo -->
-
+学习
 ## Build Setup
 
 ``` bash

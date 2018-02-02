@@ -35,7 +35,7 @@ export default {
   methods: {
       fuzujiangaibain: function(e){
         //   this.a = e;
-        this.a ++;
+        this.a += e;
         //   console.log('子组件传过来的参数',e)
       }
   },
