@@ -1,6 +1,6 @@
 <style lang="less" scoped>
 button {
-    margin-bottom: 5%;
+  margin-bottom: 5%;
 }
 </style>
 <template>
@@ -19,49 +19,51 @@ button {
   </div>
 </template>
 <script>
-import hello from './childrenComponent';
+import hello from "./childrenComponent";
 export default {
-  data(){
-      return {
-          time: 20180202,
-          title: '父组件内消息',
-          mobile: '',
-          localtion: '请输入正确的手机号'
-      }
+  data() {
+    return {
+      time: 20180202,
+      title: "父组件内消息",
+      mobile: "",
+      localtion: "请输入正确的手机号"
+    };
   },
   components: {
-      hello
+    hello
   },
   methods: {
-      inquireMobile: function(){
-          self = this;      // this在回调函数里指向不是vue实例因为下面要用，所以在这里备份一下；
-        //   console.log(this.mobile)
-        // vue 更改配置文件解决跨域请求
-        //   axios.get('https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=' + this.mobile,function(data){
-        //       console.log(data)
-        //   })
+    inquireMobile: function() {
+      self = this; // this在回调函数里指向不是vue实例因为下面要用，所以在这里备份一下；
+      //   console.log(this.mobile)
+      // vue 更改配置文件解决跨域请求
+      //   axios.get('https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=' + this.mobile,function(data){
+      //       console.log(data)
+      //   })
 
-        // ajax 解决跨域请求
-          $.ajax({ 
-              url: 'https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=' + this.mobile, 
-            type: 'GET', 
-            dataType: 'JSONP', 
-            success: function (res) { 
-                if(res.carrier != undefined){
-                  self.localtion = res.carrier;
-                } else {
-                  self.localtion = '请输入正确的手机号';
-                }
-                  self.$refs.chillls.changeIsshow(self.localtion,'查询结果');
-            } 
-        }) 
-      },
-      parentCall: function(){
-        //   父组件调用子组件内的方法，操作子组件内的数据
-          this.$refs.chilll.changeIsshow(this.title,'换个标题试试')
-      }
+      // ajax 解决跨域请求
+      $.ajax({
+        url:
+          "https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=" +
+          this.mobile,
+        type: "GET",
+        dataType: "JSONP",
+        success: function(res) {
+          if (res.carrier != undefined) {
+            self.localtion = res.carrier;
+          } else {
+            self.localtion = "请输入正确的手机号";
+          }
+          self.$refs.chillls.changeIsshow(self.localtion, "查询结果");
+        }
+      });
+    },
+    parentCall: function() {
+      //   父组件调用子组件内的方法，操作子组件内的数据
+      this.$refs.chilll.changeIsshow(this.title, "换个标题试试");
+    }
   }
-}
+};
 </script>
 
 

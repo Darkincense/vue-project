@@ -1,23 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
-import App from './App.vue'
 import * as custom from './common/filters/custom'
 
-
+import App from './App.vue'
 import baiduComponent from './components/baiduComponent.vue'
 import todoComponent from './components/todoComponent.vue'
 import newComponent from './components/new-components/newComponent.vue'
 import transitonComponent from './components/transitonComponent.vue'
 import vueComponent from './components/f-cComponents/vueComponent'
 
+// 全局使用自定义过滤器
 Object.keys(custom).forEach(key => {
   Vue.filter(key, custom[key])
 })
 
 
-Vue.use(VueRouter)
-// Vue.use(VueResource)
+Vue.use(VueRouter);
+Vue.use(VueResource);
 
 const router = new VueRouter({
   mode: 'history',    //history模式可以去掉路由中的#
