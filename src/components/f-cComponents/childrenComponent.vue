@@ -18,8 +18,25 @@ export default {
   props: ['test','a'],
   data(){
       return {
-          
+          arr: [
+            '<p><img src="1"></p>',
+            '<p><img src="2"></p>',
+            '<p><img src="3"></p>',
+            '<p><img src="4"></p>',
+            '<p><img src="5"></p>',
+          ] 
       }
+  },
+  created: function(){
+      // a = this.a;
+      // props 父组件传过来的数据怎么在子组件的方法里用；
+      // console.log('1',a)
+      // console.log('2');
+      this.arr.forEach(function(item,index){
+        // console.log(item)
+        console.log(item.match('<img'))
+      })
+
   },
   watch: {
     // test: function(val,oldVal){
