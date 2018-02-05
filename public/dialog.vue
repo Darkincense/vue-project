@@ -16,13 +16,22 @@
         .main-contain {
             position: fixed;
             width: 70%;
-            top: 50%;
+            top: 100%;
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
             border-radius: 8px;
             text-align: center;
             background: #fff;
             z-index: 99;
+            animation:mymove .6s cubic-bezier(0.27, 0.62, 0.63, 1.17) forwards; 
+        }
+        @keyframes mymove {
+            from {
+                top: 100%;
+            }
+            to {
+                top: 40%;
+            }
         }
     }
     .dialog-model.open {
@@ -75,8 +84,8 @@
                 <slot name="content">自带内容</slot>
             </div>
             <div class="foot">
-                <p class="btn ok_btn"><slot name="ok_btn">确定</slot></p>  
-                <p class="btn cancel"><slot name="cancel">取消</slot></p>
+                <p class="btn ok_btn" @click="close"><slot name="ok_btn">确定</slot></p>  
+                <p class="btn cancel" @click="close"><slot name="cancel">取消</slot></p>
             </div>
         </div>
     </div>
