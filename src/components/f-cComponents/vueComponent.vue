@@ -12,11 +12,27 @@ button {
         <input type="text" v-model="mobile" placeholder="请输入您要查询的手机号">          
         <button @click="inquireMobile">点击查询手机归属地</button>
       </div>
+      <p>父组件中： {{ val }}</p>
 
-      <!-- 真正弹窗组件 -->
+
+
+
+      <!-- 自定义组件 -->
+      <children-component
+      :test="val"
+      :a="a"
+      @changebtn="changea"
+      @changeValue="changeValu"
+      ></children-component>
+
+
+
+
+      <!-- 弹窗组件 -->
       <dialog-model 
       ref="dialog"
-      heading="自定义" >
+      heading="自定义"
+       >
         <!-- <div slot="heading">查询结果</div> -->
         <div slot="content">{{ localtion }}</div>
       </dialog-model>
@@ -26,10 +42,15 @@ button {
   </div>
 </template>
 <script>
+
 import DialogModel from '../../../public/dialog.vue';
+import ChildrenComponent from './childrenComponent.vue'
+
 export default {
   data() {
     return {
+      a: 20,
+      val: '开始输入吧',
       heading: '开始自定义标题',
       time: 20180202,
       title: "父组件内消息",
@@ -38,9 +59,17 @@ export default {
     };
   },
   components: {
-    DialogModel
+    DialogModel,
+    ChildrenComponent
   },
   methods: {
+    changea: function(p){
+      this.a = p;
+    },
+    changeValu: function(e){
+      console.log('传过来的参数',e)
+      this.val = e;
+    },
     inquireMobile: function() {
       self = this; // this在回调函数里指向不是vue实例因为下面要用，所以在这里备份一下；
       //   console.log(this.mobile)
