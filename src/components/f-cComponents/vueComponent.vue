@@ -23,6 +23,7 @@ button {
       :a="a"
       @changebtn="changea"
       @changeValue="changeValu"
+      :abc="asynObj"
       ></children-component>
 
 
@@ -50,6 +51,7 @@ export default {
   data() {
     return {
       a: 20,
+      asynObj: '',
       val: '开始输入吧',
       heading: '开始自定义标题',
       time: 20180202,
@@ -61,6 +63,14 @@ export default {
   components: {
     DialogModel,
     ChildrenComponent
+  },
+  mounted: function(){
+    var self = this;
+    setTimeout(() => {
+      self.asynObj = {
+        'item':[1,2,3]
+      }
+    }, 3000);
   },
   methods: {
     changea: function(p){

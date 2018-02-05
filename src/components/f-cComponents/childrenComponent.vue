@@ -15,27 +15,34 @@
 </template>
 <script>
 export default {
-  props: ['test','a'],
+  props: ['test','a','abc'],
   data(){
       return {
           arr: [
-            '<p><img src="1"></p>',
-            '<p><img src="2"></p>',
-            '<p><img src="3"></p>',
-            '<p><img src="4"></p>',
-            '<p><img src="5"></p>',
+            '<p><img src="1"/></p>',
+            '<p><img src="2"/></p>',
+            '<p><img src="3"/></p>',
+            '<p><img src="4"/></p>',
+            '<p><img src="5"/></p>',
           ] 
       }
   },
+  computed: {
+    
+  },
   created: function(){
+
+      var arrLabel = [];
       // a = this.a;
       // props 父组件传过来的数据怎么在子组件的方法里用；
-      // console.log('1',a)
+      console.log('1',this.abc)
       // console.log('2');
       this.arr.forEach(function(item,index){
         // console.log(item)
-        console.log(item.match('{\<\i\m\g}+'))
+        // console.log(item.match(/<img.*?(?:>|\/>)/)[0]);
+        arrLabel.push(item.match(/<img.*?(?:>|\/>)/)[0])
       })
+      // console.log(arrLabel)
 
   },
   watch: {
