@@ -34,7 +34,7 @@ export default {
       // console.log('2');
       this.arr.forEach(function(item,index){
         // console.log(item)
-        console.log(item.match('<img'))
+        console.log(item.match('{\<\i\m\g}+'))
       })
 
   },
