@@ -12,11 +12,14 @@
                 // border: 1px solid #000;
                 margin-right: 2%;
                 cursor: pointer;
-                background: pink;   
+                background: pink; 
             }
             .cur {
-                    background: red;
-                }
+                background: #fff;
+            } 
+            .router-link-active {
+                background: red;
+            }
         }
         .content {
             // padding-top: 30px;
@@ -28,7 +31,15 @@
 <template>
   <div class="main-vue">
       <ul>
-        <router-link tag="li" v-for="(item,index) of routers" :key="index" @click.native="changeCUr($event)" :to="item.route">{{ item.name }}</router-link>
+        <router-link 
+        tag="li" 
+        v-for="(item,index) of routers" 
+        :key="index" 
+        @click.native="changeCUr($event)" 
+        :to="item.route"
+        active-class="cur"
+        exact
+        >{{ item.name }}</router-link>
       </ul>
       <router-view class="content"></router-view>
   </div>
@@ -63,10 +74,9 @@ export default {
     },
     methods: {
         changeCUr: function(e){
-            // debugger;
-            // ???????????未解决????????????????
-            $(e.target).addClass('cur');
-            
+            // 给路由标签添加点击事件
+            // 路由切换时会给当前的路由标签的按钮添加一个 router-link-active 的class类名（去前提是给标签添加exact属性）
+            // active-class 该属性是给当前的路由标签添加自定义属性，来控制样式
         }
     }
 };

@@ -25,6 +25,7 @@ button {
 </style>
 <template>
   <div class="transition">
+      <button @click="openModel">点击打开弹窗组件</button>
       <button @click="changeIsshow">点击看看吧</button>
       <transition name="fade">
           <p :css="false" v-if="isShow">控制显示和隐藏</p>
@@ -34,9 +35,17 @@ button {
       <div class="image">
        <img src="../assets/images/transition.jpg" alt="雪景">          
       </div>
+    <dialog-model 
+    ref="dialog"
+    @dialogopen="dakaitanchaung"
+    @dialogclose="gaunbitanchaung">
+      <div class="title" slot='heading'>标题</div>
+      <!-- <div slot="content">内容</div> -->
+    </dialog-model>
   </div>
 </template>
-<script>
+<script type="text/ecmascript-6">
+import DialogModel from '../../public/dialog.vue'
 export default {
     data(){
         return {
@@ -44,12 +53,28 @@ export default {
             imgLeft: '-900px'
         }
     },
+    components: {
+        DialogModel
+    },
     computed: {
         imgMeth: function(){
             
         }
     },
     methods: {
+        // 打开弹窗自定义事件函数
+        dakaitanchaung: function(){
+            console.log('弹窗打开了')
+        },
+        // 关闭弹窗自定义事件函数
+        gaunbitanchaung: function(){
+            console.log('关闭弹窗')
+        },
+        // 打开弹窗
+        openModel: function(){
+            // 找到弹窗组件并打开
+            this.$refs.dialog.open();
+        },
         changeIsshow: function(){
             this.isShow = !this.isShow;
         },

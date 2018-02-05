@@ -6,11 +6,15 @@
       >每次点击a加12</button>
       <h3>父组件传递过来的a值是{{ a }}</h3>
       <button @click="openModel">弹窗组件</button>
-      <hello ref="chil"/>
+      <dialog-model ref="dilog">
+          <div slot='heading'>查看a的值</div>
+          <div slot="content">a此时的值是 {{ a }}</div>
+          <!-- <a slot="ok_btn"></a> -->
+      </dialog-model>
   </div>
 </template>
 <script>
-import hello from '../f-cComponents/childrenComponent';
+import DialogModel from '../../../public/dialog.vue';
 
 export default {
   props: [
@@ -23,12 +27,12 @@ export default {
       }
   },
   components: {
-      hello
+      DialogModel
   },
   methods: {
       openModel: function(){
         //   调用组件内的弹窗
-          this.$refs.chil.changeIsshow(this.title);
+          this.$refs.dilog.open();
       },
       changeA: function(){
           console.log('触发改变')
@@ -42,6 +46,9 @@ export default {
 <style lang="less" scoped>
 .changeA {
     cursor: pointer;
+}
+.foot .ok_btn {
+    display: none;
 }
 </style>
 
