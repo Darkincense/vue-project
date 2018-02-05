@@ -69,10 +69,12 @@ new Vue({
 })
 
 // 路由切换的时候 路由是从哪来 到哪去
-//一定要执行next()
-// router.beforeEach((to, from, next) => {
-//   console.log(to);
-//   console.log(from);
-//   next();
-// })
-// window.router = router;
+//一定要执行next() 不然路由点击不跳转
+router.beforeEach((to, from, next) => {
+  console.log(to);
+  console.log(from);
+  next();
+})
+
+// 添加下面这一句，可以让router变成一个全局的变量，可以在别的.vue 文件里怼路由进行操作；
+window.router = router;

@@ -9,7 +9,7 @@
      :value="test"
      @input="updateValue($event.target.value)"
      >
-    <button @click="btnClick">点击</button>
+    <button @click="routerGo">点击</button>
     <p>{{ a }}</p>
   </div>
 </template>
@@ -57,8 +57,12 @@ export default {
        this.$emit('changeValue',e)
       },
       btnClick: function(){
-       this.$emit('changebtn','你好')
-      }
+        this.$emit('changebtn','你好');
+      },
+      routerGo(){
+				console.log(router);
+				router.push({"path" : "/todo"});
+			}
   }
 }
 </script>
