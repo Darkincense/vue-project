@@ -67,7 +67,8 @@
         <div class="mask" @click="close"></div>
         <div class="main-contain">
             <div class="heading">
-                <slot name="heading">自带标题</slot>
+                <!-- <slot name="heading">自带标题</slot> -->
+                <h2>{{ heading }}</h2>
                 <span class="close" @click="close">×</span>
             </div>
             <div class="content">
@@ -82,19 +83,21 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      is_Show: false
+    props: ['heading'],
+    data() {
+        return {
+            is_Show: false
     };
   },
   methods: {
-    open() {
-      this.is_Show = true;
-      this.$emit("dialogopen");
+      open() {
+          this.is_Show = true;
+        this.$emit("dialogopen");
+        console.log('props',)
     },
     close() {
-      this.is_Show = false;
-      this.$emit("dialogclose");
+        this.is_Show = false;
+        this.$emit("dialogclose",this.heading);
     }
   }
 };

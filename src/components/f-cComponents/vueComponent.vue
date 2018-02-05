@@ -12,17 +12,25 @@ button {
         <input type="text" v-model="mobile" placeholder="请输入您要查询的手机号">          
         <button @click="inquireMobile">点击查询手机归属地</button>
       </div>
-      <!-- 弹窗组件 -->
-      <hello ref="chilll" />
-      <!-- 弹窗组件 -->
-      <hello ref="chillls"/>
+
+      <!-- 真正弹窗组件 -->
+      <dialog-model 
+      ref="dialog"
+      heading="自定义" >
+        <!-- <div slot="heading">查询结果</div> -->
+        <div slot="content">{{ localtion }}</div>
+      </dialog-model>
+      <dialog-model ref="dialogo">
+
+      </dialog-model>
   </div>
 </template>
 <script>
-import hello from "./childrenComponent";
+import DialogModel from '../../../public/dialog.vue';
 export default {
   data() {
     return {
+      heading: '开始自定义标题',
       time: 20180202,
       title: "父组件内消息",
       mobile: "",
@@ -30,7 +38,7 @@ export default {
     };
   },
   components: {
-    hello
+    DialogModel
   },
   methods: {
     inquireMobile: function() {
@@ -54,13 +62,14 @@ export default {
           } else {
             self.localtion = "请输入正确的手机号";
           }
-          self.$refs.chillls.changeIsshow(self.localtion, "查询结果");
+          self.$refs.dialog.open();
         }
       });
     },
     parentCall: function() {
       //   父组件调用子组件内的方法，操作子组件内的数据
-      this.$refs.chilll.changeIsshow(this.title, "换个标题试试");
+      // this.$refs.chilll.changeIsshow(this.title, "换个标题试试");
+      this.$refs.dialogo.open();
     }
   }
 };

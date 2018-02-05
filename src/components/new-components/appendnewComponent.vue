@@ -6,7 +6,9 @@
       >每次点击a加12</button>
       <h3>父组件传递过来的a值是{{ a }}</h3>
       <button @click="openModel">弹窗组件</button>
-      <dialog-model ref="dilog">
+      <dialog-model 
+      ref="dilog"
+      heading="查看当前a值的结果">
           <div slot='heading'>查看a的值</div>
           <div slot="content">a此时的值是 {{ a }}</div>
           <!-- <a slot="ok_btn"></a> -->
@@ -18,7 +20,7 @@ import DialogModel from '../../../public/dialog.vue';
 
 export default {
   props: [
-      'a'
+      'a','heading'
       ],     // 子组件里面用props数组的形式来接受父组件传进来的数据
   data(){
       return {
