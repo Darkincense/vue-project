@@ -12,14 +12,14 @@ button {
         <input type="text" v-model="mobile" placeholder="请输入您要查询的手机号">          
         <button @click="inquireMobile">点击查询手机归属地</button>
       </div>
-      <p>父组件中： {{ val }}</p>
-
+      <!-- <p>父组件中： {{ val }}</p> -->
+      <p>父组件中： <input type="text" v-model="val"></p>
 
 
 
       <!-- 自定义组件 -->
       <children-component
-      :test="val"
+      :test.sync="val"
       :a="a"
       @changebtn="changea"
       @changeValue="changeValu"
@@ -74,10 +74,11 @@ export default {
   },
   methods: {
     changea: function(p){
-      this.a = p;
+      this.a +=2;
+      // console.log('子组件传过来的参数',p)
     },
     changeValu: function(e){
-      console.log('传过来的参数',e)
+      // console.log('传过来的参数',e)
       this.val = e;
     },
     inquireMobile: function() {

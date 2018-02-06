@@ -23,7 +23,7 @@
             text-align: center;
             background: #fff;
             z-index: 99;
-            animation:mymove .6s cubic-bezier(0.27, 0.62, 0.63, 1.17) forwards; 
+            animation:mymove .3s cubic-bezier(0.27, 0.62, 0.63, 1.17) forwards; 
         }
         @keyframes mymove {
             from {

@@ -71,8 +71,8 @@ new Vue({
 // 路由切换的时候 路由是从哪来 到哪去
 //一定要执行next() 不然路由点击不跳转
 router.beforeEach((to, from, next) => {
-  console.log(to);
-  console.log(from);
+  // console.log(to);
+  // console.log(from);
   next();
 })
 
