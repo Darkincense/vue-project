@@ -52,8 +52,8 @@ export default {
         return this.test;
       },
       set: function(val){
-        console.log(val)
-        this.$emit('input',val)
+        console.log('val',val)
+        // this.$emit('input',val)
       }
     }
   },
