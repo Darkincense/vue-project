@@ -7,6 +7,7 @@
      <input 
      type="text" 
      v-model="currentTest"
+     @input="updateValue($event.target.value)"
      >
     <button @click="btnClick">点击</button>
     <p>{{ a }}</p>
@@ -14,7 +15,12 @@
 </template>
 <script>
 export default {
-  props: ['test','a','abc'],
+  // props: ['test','a','abc'],
+  props: {
+    test: String,
+    a: Number,
+    abc: Object
+  },
   data(){
       return {
           arr: [
@@ -38,6 +44,9 @@ export default {
       }
   },
   computed: {
+    fromFavalue: function(){
+      return this.test.trim().toLowerCase();
+    },
     currentTest: {
       get: function(){
         return this.test;
@@ -49,7 +58,6 @@ export default {
     }
   },
   created: function(){
-    //  @input="updateValue($event.target.value)"
       this.ctrolArr();
       var arrLabel = [];
       // a = this.a;

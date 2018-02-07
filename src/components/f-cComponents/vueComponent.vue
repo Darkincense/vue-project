@@ -19,6 +19,7 @@ button {
 
       <!-- 自定义组件 -->
       <children-component
+      class="zheshixinjianlieming"
       :test.sync="val"
       :a="a"
       @changebtn="changea"
@@ -51,7 +52,7 @@ export default {
   data() {
     return {
       a: 20,
-      asynObj: '',
+      asynObj: {},
       val: '开始输入吧',
       heading: '开始自定义标题',
       time: 20180202,
