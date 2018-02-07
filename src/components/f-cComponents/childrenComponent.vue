@@ -75,8 +75,8 @@ export default {
   watch: {
     a: function(val,oldVal){
       // 子组件内监听父组件传过来的值的变化
-      console.log('新值',val)
-      console.log('旧值',oldVal)
+      // console.log('新值',val)
+      // console.log('旧值',oldVal)
       // this.$emit('changeValue',val)
     },
   },
@@ -85,10 +85,10 @@ export default {
         this.dollArr.forEach(function(item,index){
 
           if(item.indexOf('万') == -1){
-            console.log(item.substr(0,item.length - 4) + '万元')
+            // console.log(item.substr(0,item.length - 4) + '万元')
           }else{
             var jine = item.slice(0,item.indexOf('万'));
-            console.log(jine+'万元')
+            // console.log(jine+'万元')
           }
         })
       },

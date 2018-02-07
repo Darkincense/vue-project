@@ -30,7 +30,7 @@
 
 <template>
   <div class="main-vue">
-      <ul>
+      <ul v-if="openBook">
         <router-link 
         tag="li" 
         v-for="(item,index) of routers" 
@@ -48,6 +48,7 @@
 export default {
     data(){
         return {
+            openBook: true,
             routers: [
                 {
                     name: '百度',
@@ -68,15 +69,33 @@ export default {
                 {
                     name: '父组件操作子组件',
                     route: '/vue'
+                },
+                {
+                    name: '图书',
+                    route: '/book'
                 }
             ]
         }
     },
     methods: {
         changeCUr: function(e){
+            console.log('e',$(e.target).text().indexOf('书') > -1)
+            if($(e.target).text().indexOf('书') > -1){
+                this.openBook = false;
+            }else{
+                this.openBook = true;
+            }
             // 给路由标签添加点击事件
             // 路由切换时会给当前的路由标签的按钮添加一个 router-link-active 的class类名（去前提是给标签添加exact属性）
             // active-class 该属性是给当前的路由标签添加自定义属性，来控制样式
+        }
+    },
+    created: function(){
+        console.log('路由',this.$route.path)
+        if(this.$route.path == '/book'){
+            this.openBook = false;
+        }else{
+            this.openBook = true;
         }
     }
 };

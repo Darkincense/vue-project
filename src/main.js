@@ -9,6 +9,7 @@ import todoComponent from './components/todoComponent.vue'
 import newComponent from './components/new-components/newComponent.vue'
 import transitonComponent from './components/transitonComponent.vue'
 import vueComponent from './components/f-cComponents/vueComponent'
+import bookComponent from './components/view-chart/book-form'
 
 // 全局使用自定义过滤器
 Object.keys(custom).forEach(key => {
@@ -19,6 +20,7 @@ Object.keys(custom).forEach(key => {
 Vue.use(VueRouter);
 Vue.use(VueResource);
 
+
 const router = new VueRouter({
   mode: 'history',    //history模式可以去掉路由中的#
   base: __dirname,
@@ -26,7 +28,7 @@ const router = new VueRouter({
     {
       name: 'init',
       path: '/',    // 根目录下匹配todo组件
-      component: todoComponent
+      redirect: '/todo'
     },
     {
       // 百度地图
@@ -52,12 +54,17 @@ const router = new VueRouter({
       path: '/transition',
       component: transitonComponent
     },
-    ,
     {
       // 新页面字符组件传值
       name: 'vue',
       path: '/vue',
       component: vueComponent
+    },
+    {
+      // 新页面字符组件传值
+      name: 'book',
+      path: '/book',
+      component: bookComponent
     }
   ]
 });
@@ -72,6 +79,12 @@ new Vue({
 //一定要执行next() 不然路由点击不跳转
 router.beforeEach((to, from, next) => {
   // console.log(to);
+  if (to.fullPath == '/book'){
+    console.log('现在是图书页面');
+    window.c = 999;
+  }else{
+
+  }
   // console.log(from);
   next();
 })
