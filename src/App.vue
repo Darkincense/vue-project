@@ -20,11 +20,7 @@
             .router-link-active {
                 background: red;
             }
-        }
-        .content {
-            // padding-top: 30px;
-        }
-        
+        }        
     }
 </style>
 

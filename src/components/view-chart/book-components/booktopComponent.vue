@@ -3,10 +3,17 @@
 </style>
 <template>
   <div class="app">
-      <h2>子页面</h2>
+      <h2>书架</h2>
   </div>
 </template>
 <script>
-    
+export default {
+  data(){
+      return {
+
+      }
+  },
+}
 </script>
+
 

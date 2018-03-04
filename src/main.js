@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import * as custom from './common/filters/custom'
+import ElementUI from 'element-ui'
+// import 'element-ui/lib/theme-default/index.css'
 
 import App from './App.vue'
 import baiduComponent from './components/baiduComponent.vue'
@@ -11,12 +13,13 @@ import transitonComponent from './components/transitonComponent.vue'
 import vueComponent from './components/f-cComponents/vueComponent'
 import bookComponent from './components/view-chart/book-form'
 
+
 // 全局使用自定义过滤器
 Object.keys(custom).forEach(key => {
   Vue.filter(key, custom[key])
 })
 
-
+Vue.use(ElementUI);
 Vue.use(VueRouter);
 Vue.use(VueResource);
 

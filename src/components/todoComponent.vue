@@ -22,6 +22,12 @@
       </li>
     </ul>
     <p v-else>no todos</p>
+    <!-- element  start -->
+    <el-button>默认按钮</el-button>  
+    <el-button type="primary">主要按钮</el-button>  
+    <el-button type="text">文字按钮</el-button>  
+
+    <!-- element  end -->
     <!-- <zujian class="heihei"></zujian>
     <div v-if="Math.random() > 0.5">
       看得见的
@@ -42,7 +48,7 @@
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
-import Router from 'vue-router'
+// import Router from 'vue-router'
 
 
 export default {
