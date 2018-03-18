@@ -44,7 +44,67 @@ export default {
       }
   },
   created: function(){
+       function date(arr){
+        var newArr = new Array();
+        var result = [];
+        var targetArr = [];
+        for(var i = 0; i < arr.length; i++){
+            var curVal = arr[i];
+            newArr.push(curVal)  
+        }
 
+        for(var j = 0; j < newArr.length; j++){
+            if((newArr[j] + 1) != newArr[j + 1]){
+            result.push(newArr.slice(0,j + 1))
+            }
+        }
+        for (let k = 0; k < result.length; k++) {
+            if(k > 0){
+            targetArr.push(result[k].slice(result[k - 1].length))
+            }else{
+            targetArr.push(result[0]);
+            }
+            
+        }
+        
+        for(var m = 0;m < targetArr.length; m++){
+            for(var n = 0; n < targetArr[m].length; n++){
+            switch (targetArr[m][n]) {
+                case 1:
+                targetArr[m][n] = '周一'
+                break;
+                case 2:
+                targetArr[m][n] = '周二'
+                break;
+                case 3:
+                targetArr[m][n] = '周三'
+                break;
+                case 4:
+                targetArr[m][n] = '周四'
+                break;
+                case 5:
+                targetArr[m][n] = '周五'
+                break;
+                case 6:
+                targetArr[m][n] = '周六'
+                break;
+                case 7:
+                targetArr[m][n] = '周日'
+                break;
+
+            }
+            }
+            if (targetArr[m].length >= 2) {
+            targetArr[m] = [targetArr[m][0], targetArr[m][targetArr[m].length - 1]].join('至');
+            }
+        }
+        return targetArr.join(',');
+
+    }
+
+    var arr = [1,2, 3, 6, 7]
+    var dataMsg = date(arr);
+    console.log(dataMsg)
   }
 }
 </script>
