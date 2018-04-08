@@ -8,6 +8,7 @@
         v-on:gaibianazhi="fuzujiangaibain"
         ></appendNewComponent>
         <h3>{{ name | capitalize }}</h3>
+        <button @click="getVipInfo">点击请求</button>
     </div>
 </template>
 <script>
@@ -41,6 +42,12 @@ export default {
         //   this.a = e;
         this.a += e;
           console.log('子组件传过来的参数',e)
+      },
+      getVipInfo: function(){
+            // 请求
+            // return axios.post('https://haiyin.qc01.qcw100.com/rest/2.0/item/item/user_vip_set').then((res) => {
+            //     console.log('海音vip请求数据',res);
+            // })
       }
   },
   created: function(){
@@ -105,6 +112,8 @@ export default {
     var arr = [1,2, 3, 6, 7]
     var dataMsg = date(arr);
     console.log(dataMsg)
+
+    
   }
 }
 </script>
